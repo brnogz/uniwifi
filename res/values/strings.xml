@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    This file is part of UNIwifi.
+  
+    UNIwifi is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+  
+    UNIwifi is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+  
+    You should have received a copy of the GNU General Public License
+    along with UNIwifi.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources>
+    <string name="app_name">UNIwifi</string>
+	<string name="username">Username</string>
+	<string name="password">Password</string>
+	<string name="network">Network</string>
+	<string name="done">Create/Update</string>
+	<string name="help">Help</string>
+	<string name="warning_blank">Username/password is blank.</string>
+	<string name="about">About</string>
+	<string name="feedback">Feedback</string>
+	<string name="warning_no_network">There is no network to connect required page.</string>
+	<string name="userinfo_header">Username and Password</string>
+	<string name="userinfo">Username and password given by IT or Student Affairs Deparmant.</string>
+	<string name="networkinfo_header">Network</string>
+	<string name="networkinfo">Network should be chosen according to university name. Some universities can be have more than one network such as one for students, one for personnels</string>
+	<string name="issues_header">Issues</string>
+	<string name="issuesinfo">This tools does not work on some specific devices. If you have one of them, please contact us.</string>
+	<string name="successfuly_added">New network was added successfuly.</string>
+	<string name="successfuly_saved">Network configuration was saved successfuly.</string>
+	<string name="warning_not_enabled_wireless">Wireless network is not enabled</string>
+	<string name="enable">Enable Wireless</string>
+	<string name="close">Close UNIwifi</string>
+	<string name="welcome_msg">Recent Announcement:\nUNIwifi welcomes Doğan Gülcan and Ercan Ezin to development team\n\nv 2.0\n+YTU network was added\n!Design was changed\n+About dialog was added\n!Some lines were re-written\n!Help screen was improved\n!Language Translation was improved\n\nv 1.0.1\n-30 network was removed\n!Language translation was improved\n\nv 1.0.0\n+10, 20 and 30 networks were added\n+Help document was added\n+Turkish and English languages were added</string>
+	<string name="Okay">OK</string>
+	<string name="about_msg">UNIwifi v 2.0\n\nLicensed under the GPL v 3.0\nProject page and source at http://buwifi.googlecode.com\n\nUses code from Wifi-ACE Project\nhttp://android-wifi-ace.googlecode.com\n</string>
+	<string name="img_logo">UNIwifi Logo</string>
+	<string name="enterprise_msg">Current UNIwifi cannot reach some settings on your device, so UNIwifi cannot work well. Please give feedback about this error.</string>
+</resources>

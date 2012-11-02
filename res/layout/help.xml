@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    This file is part of BUwifi.
+  
+    BUwifi is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+  
+    BUwifi is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+  
+    You should have received a copy of the GNU General Public License
+    along with BUwifi.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LLHelp"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:isScrollContainer="true"
+    android:background="@drawable/back"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/IVHelpLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/img_logo" />
+
+    <RelativeLayout
+        android:id="@+id/RLHelpLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp" >
+        
+        <TextView 
+            android:id="@+id/TVUserInfoHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/userinfo_header"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#111111"/>
+        
+        <TextView 
+            android:id="@+id/TVUserInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/userinfo"
+            android:layout_below="@id/TVUserInfoHeader"
+            android:textSize="13sp"
+            android:textColor="#111111"/>
+        
+        <TextView 
+            android:id="@+id/TVNetWorkInfoHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/networkinfo_header"
+            android:layout_below="@id/TVUserInfo"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:textColor="#111111"/>
+        
+        <TextView 
+            android:id="@+id/TVNetWorkInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/networkinfo"
+            android:layout_below="@id/TVNetWorkInfoHeader"
+            android:textSize="13sp"
+            android:textColor="#111111"/>
+        
+        <TextView 
+            android:id="@+id/TVIssuesInfoHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/issues_header"
+            android:layout_below="@id/TVNetWorkInfo"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:textColor="#111111"/>
+        
+        <TextView 
+            android:id="@+id/TVIssuesInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/issuesinfo"
+            android:layout_below="@id/TVIssuesInfoHeader"
+            android:textSize="13sp"
+            android:textColor="#111111"/>
+        
+    </RelativeLayout>
+
+</LinearLayout>

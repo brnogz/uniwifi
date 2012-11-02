@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    This file is part of UNIwifi.
+  
+    UNIwifi is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+  
+    UNIwifi is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+  
+    You should have received a copy of the GNU General Public License
+    along with UNIwifi.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources>
+    <string name="app_name">UNIwifi</string>
+	<string name="username">Kullanıcı Adı</string>
+	<string name="password">Parola</string>
+	<string name="network">Ağ</string>
+	<string name="done">Ekle/Değiştir</string>
+	<string name="help">Yardım</string>
+	<string name="warning_blank">Kullanıcı adı/parola boş.</string>
+	<string name="about">Hakkında</string>
+	<string name="feedback">Geri Bildirim</string>
+	<string name="warning_no_network">İstenilen sayfayı açmak için uygun bir ağ bağlantısı yok.</string>
+	<string name="userinfo_header">Kullanıcı adı ve Parola</string>
+	<string name="userinfo">Kullanıcı adı ve parola Bilgi İşlem yada Öğrenci İşeri Deparmanı tarafından verilmektedir.</string>
+	<string name="networkinfo_header">Ağ ismi</string>
+	<string name="networkinfo">Ağ ismi okula göre seçilmelidir. Bazı okullarda öğrenciler için ayrı, personel için ayrı ağlar olmak üzere birden fazla ağ olabilir.</string>
+	<string name="issues_header">Hatalar</string>
+	<string name="issuesinfo">Bu araç bazı belirli cihazlarda çalışmamaktadır. Eğer bu cihazlardan birine sahipseniz bizimle iletişime geçin.</string>
+	<string name="successfuly_added">Ağ başarıyla eklendi.</string>
+	<string name="successfuly_saved">Ağ ayarları başarıyla kaydedildi.</string>
+	<string name="warning_not_enabled_wireless">Kablosuz ağ etkin değil</string>
+	<string name="enable">Kablosuz ağı etkinleştir</string>
+	<string name="close">UNIwifi\'yı kapat</string>
+	<string name="welcome_msg">Recent Announcement:\nUNIwifi welcomes Doğan Gülcan and Ercan Ezin to development team\n\nv 2.0\n+YTU network was added\n!Design was changed\n+About dialog was added\n!Some lines were re-written\n!Help screen was improved\n!Language Translation was improved\n\nv 1.0.1\n-30 network was removed\n!Language translation was improved\n\nv 1.0.0\n+10, 20 and 30 networks were added\n+Help document was added\n+Turkish and English languages were added</string>
+	<string name="Okay">Tamam</string>
+	<string name="about_msg">UNIwifi v 2.0\n\nLicensed under the GPL v 3.0\nProject page and source at http://buwifi.googlecode.com\n\nUses code from Wifi-ACE Project\nhttp://android-wifi-ace.googlecode.com\n</string>
+	<string name="img_logo">UNIwifi Logo</string>
+	<string name="enterprise_msg">Kullandığınız UNIwifi cihazınıdaki bazı ayarlara erişemiyor, bu nedenle UNIwifi düzgün çalışamaz. Lütfen bu sorunla ilgili geri bildirim gönderin.</string>
+</resources>
