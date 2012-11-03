@@ -46,6 +46,8 @@ public class UNIwifiActivity extends Activity {
 
 	private String username;
 	private String password;
+	private int network;
+	
 	private int SSID;
 
 	@Override
@@ -122,6 +124,8 @@ public class UNIwifiActivity extends Activity {
 		ETpassword.setText(prefs.getPassword());
 
 		Snetwork = (Spinner) this.findViewById(R.id.SNetwork);
+		Snetwork.setSelection(prefs.getNetwork());
+		
 		BTNdone = (Button) this.findViewById(R.id.BTNDone);
 	}
 
@@ -143,8 +147,10 @@ public class UNIwifiActivity extends Activity {
 	private void initializeVariables() {
 		username = ETusername.getText().toString().trim();
 		password = ETpassword.getText().toString().trim();
-		SSID = Snetwork.getSelectedItemPosition() == Spinner.INVALID_POSITION ? 0
-				: Snetwork.getSelectedItemPosition();
+		network = Snetwork.getSelectedItemPosition();
+		
+		SSID = network == Spinner.INVALID_POSITION ? 0
+				: network;
 		// wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 	}
 
@@ -162,6 +168,7 @@ public class UNIwifiActivity extends Activity {
 
 		prefs.setUsername(username);
 		prefs.setPassword(password);
+		prefs.setNetwork(network);
 
 		List<WifiConfiguration> wirelessList = wifiManager
 				.getConfiguredNetworks();

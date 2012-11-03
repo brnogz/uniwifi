@@ -65,8 +65,8 @@ public class Preferences {
 		editor.putString(KEY_PASSWORD, password).commit();
 	}
 	
-	public String getNetwork(){
-		return prefs.getString(KEY_NETWORK, "");
+	public int getNetwork(){
+		return prefs.getInt(KEY_NETWORK, 0);
 	}
 	
 	public void setNetwork(int network){
