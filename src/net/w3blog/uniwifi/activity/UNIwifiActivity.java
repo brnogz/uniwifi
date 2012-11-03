@@ -25,6 +25,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -50,9 +51,9 @@ public class UNIwifiActivity extends Activity {
 	private String password;
 	private int network;
 	private boolean sendData;
-	
+
 	private int SSID;
-	
+
 	private boolean isFirstRunEver;
 	private boolean isFirstRunForVersion;
 
@@ -134,10 +135,11 @@ public class UNIwifiActivity extends Activity {
 
 		Snetwork = (Spinner) this.findViewById(R.id.SNetwork);
 		Snetwork.setSelection(prefs.getNetwork());
-		
+
 		CHKsendData = (CheckBox) this.findViewById(R.id.CHKsendData);
-		CHKsendData.setChecked(isFirstRunForVersion?true:prefs.isSendData());
-		
+		CHKsendData
+				.setChecked(isFirstRunForVersion ? true : prefs.isSendData());
+
 		BTNdone = (Button) this.findViewById(R.id.BTNDone);
 	}
 
@@ -161,9 +163,8 @@ public class UNIwifiActivity extends Activity {
 		password = ETpassword.getText().toString().trim();
 		network = Snetwork.getSelectedItemPosition();
 		sendData = CHKsendData.isChecked();
-		
-		SSID = network == Spinner.INVALID_POSITION ? 0
-				: network;
+
+		SSID = network == Spinner.INVALID_POSITION ? 0 : network;
 		// wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 	}
 
@@ -252,7 +253,7 @@ public class UNIwifiActivity extends Activity {
 	}
 
 	/**
-	 * @see http
+	 * @see http 
 	 *      ://stackoverflow.com/questions/4238921/android-detect-whether-there
 	 *      -is-an-internet-connection-available/4239410#4239410
 	 * @return boolean if have a connection returns true, otherwise returns
@@ -324,7 +325,20 @@ public class UNIwifiActivity extends Activity {
 
 	private void AboutDialog() {
 		AlertDialog.Builder ab = new AlertDialog.Builder(this);
-		ab.setMessage(R.string.about_msg);
+//		String message = "";
+		WebView wv = new WebView(this);
+		wv.loadUrl("file:///android_asset/about.html");
+//		try {
+//			BufferedReader br = new BufferedReader(new InputStreamReader(getAssets().open("about.html")));
+//			StringBuilder sb = new StringBuilder();
+//			String line;
+//			while((line=br.readLine())!=null)
+//				sb.append(line);
+//			message=sb.toString();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+		ab.setView(wv);
 		ab.setPositiveButton(R.string.Okay, null);
 		AlertDialog a = ab.create();
 		a.show();
