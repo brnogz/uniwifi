@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="uniwifi.dialog.theme" parent="@android:style/Theme.Dialog">
+    <style name="UniTheme" parent="@android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@null</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorLink">@color/black</item>
     </style>
 
 </resources>

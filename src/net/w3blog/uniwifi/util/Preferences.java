@@ -17,6 +17,7 @@ public class Preferences {
 	private final String KEY_USERNAME = "username";
 	private final String KEY_PASSWORD = "password";
 	private final String KEY_NETWORK = "network";
+	private final String KEY_SEND_DATA = "sendData";
 	
 	public Preferences(Context context){
 		this.context = context;
@@ -45,8 +46,12 @@ public class Preferences {
 		return currentVersion>oldVersion;
 	}
 	
-	public void setFirstRunForVersion(int version){
-		editor.putInt(KEY_FIRST_RUN_VERSION, version).commit();
+	public void setFirstRunForVersion(){
+		try {
+			editor.putInt(KEY_FIRST_RUN_VERSION, context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode).commit();
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public String getUsername(){
@@ -71,5 +76,13 @@ public class Preferences {
 	
 	public void setNetwork(int network){
 		editor.putInt(KEY_NETWORK, network).commit();
+	}
+	
+	public boolean isSendData(){
+		return prefs.getBoolean(KEY_SEND_DATA, false);
+	}
+	
+	public void setSendData(boolean isSend){
+		editor.putBoolean(KEY_SEND_DATA, isSend).commit();
 	}
 }

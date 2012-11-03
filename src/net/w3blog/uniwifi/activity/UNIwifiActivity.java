@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class UNIwifiActivity extends Activity {
 	private EditText ETpassword;
 	private Spinner Snetwork;
 	private Button BTNdone;
+	private CheckBox CHKsendData;
 
 	private final String[] networks = { "\"10\"", "\"20\"", "\"yildiz-net\"" };
 	private final int BAU_STAFF = 0;
@@ -47,14 +49,20 @@ public class UNIwifiActivity extends Activity {
 	private String username;
 	private String password;
 	private int network;
+	private boolean sendData;
 	
 	private int SSID;
+	
+	private boolean isFirstRunEver;
+	private boolean isFirstRunForVersion;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		this.prefs = new Preferences(getApplicationContext());
+		isFirstRunEver = prefs.isFirstRunEver();
+		isFirstRunForVersion = prefs.isFirstRunForVersion();
 
 		this.setContentView(R.layout.main);
 		this.initializeViews();
@@ -68,9 +76,10 @@ public class UNIwifiActivity extends Activity {
 			this.enterpriseNotReachableDialog();
 		}
 
-		if (prefs.isFirstRunEver()) {
+		if (isFirstRunEver) {
 			this.welcomeDialog();
 			prefs.setFirstRunEver();
+			prefs.setFirstRunForVersion();
 		}
 
 	}
@@ -126,6 +135,9 @@ public class UNIwifiActivity extends Activity {
 		Snetwork = (Spinner) this.findViewById(R.id.SNetwork);
 		Snetwork.setSelection(prefs.getNetwork());
 		
+		CHKsendData = (CheckBox) this.findViewById(R.id.CHKsendData);
+		CHKsendData.setChecked(isFirstRunForVersion?true:prefs.isSendData());
+		
 		BTNdone = (Button) this.findViewById(R.id.BTNDone);
 	}
 
@@ -148,6 +160,7 @@ public class UNIwifiActivity extends Activity {
 		username = ETusername.getText().toString().trim();
 		password = ETpassword.getText().toString().trim();
 		network = Snetwork.getSelectedItemPosition();
+		sendData = CHKsendData.isChecked();
 		
 		SSID = network == Spinner.INVALID_POSITION ? 0
 				: network;
@@ -169,6 +182,7 @@ public class UNIwifiActivity extends Activity {
 		prefs.setUsername(username);
 		prefs.setPassword(password);
 		prefs.setNetwork(network);
+		prefs.setSendData(sendData);
 
 		List<WifiConfiguration> wirelessList = wifiManager
 				.getConfiguredNetworks();

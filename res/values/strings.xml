@@ -42,4 +42,5 @@
 	<string name="about_msg">UNIwifi v 2.0\n\nLicensed under the GPL v 3.0\nProject page and source at http://buwifi.googlecode.com\n\nUses code from Wifi-ACE Project\nhttp://android-wifi-ace.googlecode.com\n</string>
 	<string name="img_logo">UNIwifi Logo</string>
 	<string name="enterprise_msg">Current UNIwifi cannot reach some settings on your device, so UNIwifi cannot work well. Please give feedback about this error.</string>
+	<string name="send_data">Send data about my device anonymously</string>
 </resources>
