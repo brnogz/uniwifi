@@ -4,7 +4,7 @@
 <h2>Supported Networks:</h2>
 -Bahcesehir University Student Network
 -Bahcesehir University Staff Network
--Yildiz Technical University Student Netwok
+-Yildiz Technical University Student Network
 
 If your university is not on the list please contact us.
 

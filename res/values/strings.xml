@@ -37,10 +37,15 @@
 	<string name="warning_not_enabled_wireless">Wireless network is not enabled</string>
 	<string name="enable">Enable Wireless</string>
 	<string name="close">Close UNIwifi</string>
-	<string name="welcome_msg">Recent Announcement:\nUNIwifi welcomes Doğan Gülcan and Ercan Ezin to development team\n\nv 2.0\n+YTU network was added\n!Design was changed\n+About dialog was added\n!Some lines were re-written\n!Help screen was improved\n!Language Translation was improved\n\nv 1.0.1\n-30 network was removed\n!Language translation was improved\n\nv 1.0.0\n+10, 20 and 30 networks were added\n+Help document was added\n+Turkish and English languages were added</string>
 	<string name="Okay">OK</string>
-	<string name="about_msg">UNIwifi v 2.0\n\nLicensed under the GPL v 3.0\nProject page and source at http://buwifi.googlecode.com\n\nUses code from Wifi-ACE Project\nhttp://android-wifi-ace.googlecode.com\n</string>
+	<string name="about_msg">UNIwifi v 3.0\n\nLicensed under the GPL v 3.0\nProject page and source at https://github.com/brnogz/uniwifi\n\nUses code from Wifi-ACE Project\nhttp://android-wifi-ace.googlecode.com\n</string>
 	<string name="img_logo">UNIwifi Logo</string>
 	<string name="enterprise_msg">Current UNIwifi cannot reach some settings on your device, so UNIwifi cannot work well. Please give feedback about this error.</string>
-	<string name="send_data">Send data about my device anonymously</string>
+	<string name="email">Your Email Address</string>
+	<string name="title">Title</string>
+	<string name="message">Message</string>
+	<string name="send">Send</string>
+	<string name="feedbackhelp">or you can send email to brn.oguz@gmail.com</string>
+    <string name="send_sucess">Message is sent successfuly</string>
+    <string name="send_fail">Message sending error</string>
 </resources>

@@ -59,18 +59,42 @@
             android:inputType="textPassword"
             android:lines="1" />
 
-        <CheckBox
-            android:id="@+id/CHKsendData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/send_data" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
 
-        <Button
-            android:id="@+id/BTNDone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/done" />
+            <Button
+                android:id="@+id/btnAbout"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/about" />
+
+            <Button
+                android:id="@+id/btnFeedback"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnAbout"
+                android:text="@string/feedback" />
+
+            <Button
+                android:id="@+id/btnHelp"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnFeedback"
+                android:text="@string/help" />
+
+            <Button
+                android:id="@+id/BTNDone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical|right"
+                android:text="@string/done" />
+        </RelativeLayout>
     </LinearLayout>
 
 </ScrollView>

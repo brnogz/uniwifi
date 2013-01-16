@@ -3,7 +3,7 @@
 
     <style name="UniTheme" parent="@android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@null</item>
+        <item name="android:windowBackground">@drawable/background</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorLink">@color/black</item>
     </style>

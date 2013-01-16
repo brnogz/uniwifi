@@ -15,19 +15,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -37,7 +31,9 @@ public class UNIwifiActivity extends Activity {
 	private EditText ETpassword;
 	private Spinner Snetwork;
 	private Button BTNdone;
-	private CheckBox CHKsendData;
+	private Button BTNhelp;
+	private Button BTNabout;
+	private Button BTNfeedback;
 
 	private final String[] networks = { "\"10\"", "\"20\"", "\"yildiz-net\"" };
 	private final int BAU_STAFF = 0;
@@ -55,7 +51,6 @@ public class UNIwifiActivity extends Activity {
 	private int SSID;
 
 	private boolean isFirstRunEver;
-	private boolean isFirstRunForVersion;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -63,7 +58,6 @@ public class UNIwifiActivity extends Activity {
 
 		this.prefs = new Preferences(getApplicationContext());
 		isFirstRunEver = prefs.isFirstRunEver();
-		isFirstRunForVersion = prefs.isFirstRunForVersion();
 
 		this.setContentView(R.layout.main);
 		this.initializeViews();
@@ -72,55 +66,17 @@ public class UNIwifiActivity extends Activity {
 		wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 
 		if (!wifiManager.isWifiEnabled()) {
-			this.wifiNotEnabledDiaglod();
-		} else if (NetworkConfig.isEnterpriseReachable()) {
+			this.wifiNotEnabledDiaglod(); // comment this line to emulator
+			// layout testing
+		} else if (NetworkConfig.isEnterpriseReachable(this)) {
 			this.enterpriseNotReachableDialog();
 		}
 
 		if (isFirstRunEver) {
-			this.welcomeDialog();
 			prefs.setFirstRunEver();
 			prefs.setFirstRunForVersion();
 		}
 
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater mi = this.getMenuInflater();
-		mi.inflate(R.menu.menu, menu);
-
-		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		boolean connected = haveNetworkConnection();
-		Intent intent;
-
-		switch (item.getItemId()) {
-		case R.id.mnuHelp:
-			intent = new Intent(this, HelpActivity.class);
-			startActivity(intent);
-			break;
-		case R.id.mnuFeedBack:
-			if (connected) {
-				Uri uri = Uri
-						.parse("http://code.google.com/p/buwifi/issues/entry");
-				intent = new Intent(Intent.ACTION_VIEW, uri);
-				startActivity(intent);
-			} else {
-				Toast.makeText(this,
-						this.getString(R.string.warning_no_network),
-						Toast.LENGTH_LONG).show();
-			}
-			break;
-		case R.id.mnuAbout:
-			this.AboutDialog();
-			break;
-		}
-
-		return super.onOptionsItemSelected(item);
 	}
 
 	/**
@@ -136,21 +92,58 @@ public class UNIwifiActivity extends Activity {
 		Snetwork = (Spinner) this.findViewById(R.id.SNetwork);
 		Snetwork.setSelection(prefs.getNetwork());
 
-		CHKsendData = (CheckBox) this.findViewById(R.id.CHKsendData);
-		CHKsendData
-				.setChecked(isFirstRunForVersion ? true : prefs.isSendData());
-
 		BTNdone = (Button) this.findViewById(R.id.BTNDone);
+		BTNhelp = (Button) this.findViewById(R.id.btnHelp);
+		BTNabout = (Button) this.findViewById(R.id.btnAbout);
+		BTNfeedback = (Button) this.findViewById(R.id.btnFeedback);
 	}
 
 	/**
 	 * initializes button events on the activity
 	 */
 	public void initializeButtons() {
+
 		BTNdone.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				createOrReplaceNetwork();
+			}
+		});
+
+		BTNhelp.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(UNIwifiActivity.this,
+						HelpActivity.class);
+				startActivity(intent);
+			}
+		});
+
+		BTNabout.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(UNIwifiActivity.this,
+						AboutActivity.class);
+				startActivity(intent);
+			}
+		});
+
+		BTNfeedback.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				final boolean connected = haveNetworkConnection();
+				if (connected) {
+					Intent intent = new Intent(UNIwifiActivity.this,
+							ContactActivity.class);
+					startActivity(intent);
+				} else {
+					Toast.makeText(
+							UNIwifiActivity.this,
+							UNIwifiActivity.this
+									.getString(R.string.warning_no_network),
+							Toast.LENGTH_SHORT).show();
+				}
+
 			}
 		});
 	}
@@ -162,7 +155,6 @@ public class UNIwifiActivity extends Activity {
 		username = ETusername.getText().toString().trim();
 		password = ETpassword.getText().toString().trim();
 		network = Snetwork.getSelectedItemPosition();
-		sendData = CHKsendData.isChecked();
 
 		SSID = network == Spinner.INVALID_POSITION ? 0 : network;
 		// wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
@@ -175,7 +167,7 @@ public class UNIwifiActivity extends Activity {
 	private void createOrReplaceNetwork() {
 		this.initializeVariables();
 		if (username.equals("") || password.equals("")) {
-			Toast.makeText(this, R.string.warning_blank, Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.warning_blank, Toast.LENGTH_SHORT)
 					.show();
 			return;
 		}
@@ -195,13 +187,13 @@ public class UNIwifiActivity extends Activity {
 			}
 		}
 
-		WifiConfiguration finalConfig = CreateConfiguration(SSID, username,
+		WifiConfiguration finalConfig = createConfiguration(SSID, username,
 				password);
 
 		finalConfig.networkId = wifiManager.addNetwork(finalConfig);
 
 		if (finalConfig.networkId != -1)
-			Toast.makeText(this, R.string.successfuly_added, Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.successfuly_added, Toast.LENGTH_SHORT)
 					.show();
 		else
 			Log.d("buwifi", "network cannot be added");
@@ -213,7 +205,7 @@ public class UNIwifiActivity extends Activity {
 		Log.d("buwifi", "network is enabled : " + successfuladdition
 				+ " configuration is saved : " + successfulsaving);
 		if (successfulsaving)
-			Toast.makeText(this, R.string.successfuly_saved, Toast.LENGTH_LONG)
+			Toast.makeText(this, R.string.successfuly_saved, Toast.LENGTH_SHORT)
 					.show();
 
 	}
@@ -230,7 +222,7 @@ public class UNIwifiActivity extends Activity {
 	 *            password
 	 * @return WifiConfiguration
 	 */
-	private WifiConfiguration CreateConfiguration(int SSID, String username,
+	private WifiConfiguration createConfiguration(int SSID, String username,
 			String password) {
 		NetworkConfig netConfig = null;
 
@@ -314,33 +306,5 @@ public class UNIwifiActivity extends Activity {
 		a.show();
 	}
 
-	private void welcomeDialog() {
-		AlertDialog.Builder ab = new AlertDialog.Builder(this);
-		ab.setMessage(R.string.welcome_msg);
-		ab.setPositiveButton(R.string.Okay, null);
-		ab.setCancelable(true);
-		AlertDialog a = ab.create();
-		a.show();
-	}
 
-	private void AboutDialog() {
-		AlertDialog.Builder ab = new AlertDialog.Builder(this);
-//		String message = "";
-		WebView wv = new WebView(this);
-		wv.loadUrl("file:///android_asset/about.html");
-//		try {
-//			BufferedReader br = new BufferedReader(new InputStreamReader(getAssets().open("about.html")));
-//			StringBuilder sb = new StringBuilder();
-//			String line;
-//			while((line=br.readLine())!=null)
-//				sb.append(line);
-//			message=sb.toString();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		ab.setView(wv);
-		ab.setPositiveButton(R.string.Okay, null);
-		AlertDialog a = ab.create();
-		a.show();
-	}
 }
