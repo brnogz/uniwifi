@@ -2,10 +2,10 @@
 <strong>UNIwifi is an open source tool which make easy to connect university wireless networks.</strong>
 
 <h2>Supported Networks:</h2>
--Bahcesehir University Student Network
--Bahcesehir University Staff Network
--Yildiz Technical University Student Network
--Eduroam
+- Bahcesehir University Student Network
+- Bahcesehir University Staff Network
+- Yildiz Technical University Student Network
+- Eduroam
 
 If your university is not on the list please contact us.
 
