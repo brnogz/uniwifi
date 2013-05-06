@@ -1,13 +1,30 @@
-package net.w3blog.uniwifi.activity;
+/*
+ * This file is part of UNIwifi.
+ *
+ *  UNIwifi is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  UNIwifi is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with UNIwifi.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package net.w3blog.uniwifi3.activity;
 
 import java.util.List;
 
-import net.w3blog.uniwifi.R;
-import net.w3blog.uniwifi.networks.BAUStaffNetwork;
-import net.w3blog.uniwifi.networks.BAUStudentNetwork;
-import net.w3blog.uniwifi.networks.YTUStudentNetwork;
-import net.w3blog.uniwifi.util.NetworkConfig;
-import net.w3blog.uniwifi.util.Preferences;
+import net.w3blog.uniwifi3.R;
+import net.w3blog.uniwifi3.networks.BAUStaffNetwork;
+import net.w3blog.uniwifi3.networks.BAUStudentNetwork;
+import net.w3blog.uniwifi3.networks.EduroamNetwork;
+import net.w3blog.uniwifi3.networks.YTUStudentNetwork;
+import net.w3blog.uniwifi3.util.NetworkConfig;
+import net.w3blog.uniwifi3.util.Preferences;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -35,10 +52,12 @@ public class UNIwifiActivity extends Activity {
 	private Button BTNabout;
 	private Button BTNfeedback;
 
-	private final String[] networks = { "\"10\"", "\"20\"", "\"yildiz-net\"" };
+	private final String[] networks = { "\"10\"", "\"20\"", "\"yildiz-net\"",
+			"\"Eduroam\"" };
 	private final int BAU_STAFF = 0;
 	private final int BAU_STUDENT = 1;
 	private final int YTU_STUDENT = 2;
+	private final int EDUROAM = 3;
 
 	private WifiManager wifiManager;
 	private Preferences prefs;
@@ -239,6 +258,10 @@ public class UNIwifiActivity extends Activity {
 			netConfig = new YTUStudentNetwork(new WifiConfiguration(),
 					username, password);
 			break;
+		case EDUROAM:
+			netConfig = new EduroamNetwork(new WifiConfiguration(), username,
+					password);
+			break;
 		}
 
 		return netConfig.getConfiguration();
@@ -305,6 +328,5 @@ public class UNIwifiActivity extends Activity {
 		AlertDialog a = ab.create();
 		a.show();
 	}
-
 
 }

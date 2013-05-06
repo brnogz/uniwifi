@@ -47,5 +47,5 @@
     <string name="send">Gönder</string>
     <string name="feedbackhelp">ya da brn.oguz@gmail.com adresine eposta gönderebilirsiniz</string>
     <string name="send_sucess">Mesaj başarıyla gönderildi</string>
-    <string name="send_fail">Mesaj gönderilemedi</string>
+    <string name="send_fail">Mesajınız gönderilemiyor ya da fazla mesaj göndermeye çalıştınız.\nLütfen sonra tekrar deneyin.</string>
 </resources>

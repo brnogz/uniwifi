@@ -5,6 +5,7 @@
 -Bahcesehir University Student Network
 -Bahcesehir University Staff Network
 -Yildiz Technical University Student Network
+-Eduroam
 
 If your university is not on the list please contact us.
 

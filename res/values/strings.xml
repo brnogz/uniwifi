@@ -47,5 +47,5 @@
 	<string name="send">Send</string>
 	<string name="feedbackhelp">or you can send email to brn.oguz@gmail.com</string>
     <string name="send_sucess">Message is sent successfuly</string>
-    <string name="send_fail">Message sending error</string>
+    <string name="send_fail">Your message cannot be posted or you tried to flood the server.\nPlease try to post later</string>
 </resources>
