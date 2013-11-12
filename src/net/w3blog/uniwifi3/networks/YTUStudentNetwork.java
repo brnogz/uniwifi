@@ -16,37 +16,38 @@
  */
 package net.w3blog.uniwifi3.networks;
 
-import net.w3blog.uniwifi3.util.NetworkConfig;
-
+import net.w3blog.uniwifi3.util.SchoolNetwork;
 import android.net.wifi.WifiConfiguration;
 
-public class YTUStudentNetwork extends NetworkConfig {
-	final private String SSID = "\"yildiz-net\"";
+public class YTUStudentNetwork extends SchoolNetwork {
 
-	public YTUStudentNetwork(WifiConfiguration config,String username,String password) {
-		super(config);
-		
+	@Override
+	public void init(String username, String password) {
+		String SSID = "\"yildiz-net\"";
 		setSSID(SSID);
-		
+
 		setStatus(WifiConfiguration.Status.DISABLED);
-		
+
 		setPriority(40);
-		
+
 		setHiddenSSID(false);
-		
-		setKeyManagement(new int[]{WifiConfiguration.KeyMgmt.IEEE8021X});
-		
+
+		setKeyManagement(new int[] { WifiConfiguration.KeyMgmt.IEEE8021X });
+
 		clearGroupCiphers();
-		
+
 		clearPairwiseCiphers();
-		setPairwiseCiphers(new int[]{WifiConfiguration.PairwiseCipher.TKIP,WifiConfiguration.PairwiseCipher.CCMP});
-		
-		setProtocols(new int[]{WifiConfiguration.Protocol.RSN,WifiConfiguration.Protocol.WPA});
+		setPairwiseCiphers(new int[] { WifiConfiguration.PairwiseCipher.TKIP,
+				WifiConfiguration.PairwiseCipher.CCMP });
+
+		setProtocols(new int[] { WifiConfiguration.Protocol.RSN,
+				WifiConfiguration.Protocol.WPA });
 
 		setEap("PEAP");
 		setPhase2("auth=MSCHAPV2");
 		setIdentity(username);
 		setPassword(password);
+
 	}
 
 }

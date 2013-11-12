@@ -16,15 +16,14 @@
  */
 package net.w3blog.uniwifi3.networks;
 
+import net.w3blog.uniwifi3.util.SchoolNetwork;
 import android.net.wifi.WifiConfiguration;
-import net.w3blog.uniwifi3.util.NetworkConfig;
 
-public class EduroamNetwork extends NetworkConfig {
-	final private String SSID = "\"eduroam\"";
+public class EduroamNetwork extends SchoolNetwork {
 
-	public EduroamNetwork(WifiConfiguration config, String username,
-			String password) {
-		super(config);
+	@Override
+	public void init(String username, String password) {
+		String SSID = "\"eduroam\"";
 
 		setSSID(SSID);
 

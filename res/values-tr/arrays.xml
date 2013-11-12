@@ -20,6 +20,6 @@
         <item >Bahçeşehir Üniversitesi Personel Ağı</item>
         <item >Bahçeşehir Üniversitesi Öğrenci Ağı</item>
         <item >Yıldız Teknik Üniversitesi Öğrenci Ağı</item>
-        <item >Eduroam</item>
+        <!-- <item >Eduroam</item> -->
     </string-array>
 </resources>

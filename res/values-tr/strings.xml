@@ -38,7 +38,7 @@
 	<string name="enable">Kablosuz ağı etkinleştir</string>
 	<string name="close">UNIwifi\'yı kapat</string>
 	<string name="Okay">Tamam</string>
-	<string name="about_msg">UNIwifi v 3.0\n\nGPL v 3.0 lisansıyla lisanslanmıştır\nProje sayfası ve kaynak kodları\nhttps://github.com/brnogz/uniwifi\nGNU GPL v 3.0\nhttp://www.gnu.org/licenses/gpl-3.0.txt\n\nWifi-ACE Projesinden kod parçaları kullanmaktadır\nhttp://android-wifi-ace.googlecode.com\nApache License v 2.0\nhttp://www.apache.org/licenses/LICENSE-2.0.html\n</string>
+	<string name="about_msg">UNIwifi v 3.1\n\nGPL v 3.0 lisansıyla lisanslanmıştır\nProje sayfası ve kaynak kodları\nhttps://github.com/brnogz/uniwifi\nGNU GPL v 3.0\nhttp://www.gnu.org/licenses/gpl-3.0.txt\n\nWifi-ACE Projesinden kod parçaları kullanmaktadır\nhttp://android-wifi-ace.googlecode.com\nApache License v 2.0\nhttp://www.apache.org/licenses/LICENSE-2.0.html\n</string>
     <string name="img_logo">UNIwifi Logo</string>
 	<string name="enterprise_msg">Kullandığınız UNIwifi cihazınıdaki bazı ayarlara erişemiyor, bu nedenle UNIwifi düzgün çalışamaz. Lütfen bu sorunla ilgili geri bildirim gönderin.</string>
     <string name="email">Eposta Adresiniz</string>
