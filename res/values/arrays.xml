@@ -20,6 +20,6 @@
         <item >Bahcesehir University Personnel Network</item>
         <item >Bahcesehir University Student Network</item>
         <item >Yildiz Technical University Student Network</item>
-        <!-- <item >Eduroam</item> -->
+        <item >Eduroam</item>
     </string-array>
 </resources>

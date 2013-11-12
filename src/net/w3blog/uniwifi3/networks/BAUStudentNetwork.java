@@ -16,33 +16,32 @@
  */
 package net.w3blog.uniwifi3.networks;
 
-import net.w3blog.uniwifi3.util.SchoolNetwork;
+import net.w3blog.uniwifi3.util.NetworkConfig;
+
 import android.net.wifi.WifiConfiguration;
 
-public class BAUStudentNetwork extends SchoolNetwork {
+public class BAUStudentNetwork extends NetworkConfig {
+	final private String SSID = "\"20\"";
 
-	@Override
-	public void init(String username, String password) {
-		String SSID = "\"20\"";
-
+	public BAUStudentNetwork(WifiConfiguration config,String username,String password) {
+		super(config);
+		
 		setSSID(SSID);
-
+		
 		setStatus(WifiConfiguration.Status.DISABLED);
-
+		
 		setPriority(40);
-
+		
 		setHiddenSSID(false);
-
-		setKeyManagement(new int[] { WifiConfiguration.KeyMgmt.IEEE8021X });
-
+		
+		setKeyManagement(new int[]{WifiConfiguration.KeyMgmt.IEEE8021X});
+		
 		clearGroupCiphers();
-
+		
 		clearPairwiseCiphers();
-		setPairwiseCiphers(new int[] { WifiConfiguration.PairwiseCipher.TKIP,
-				WifiConfiguration.PairwiseCipher.CCMP });
-
-		setProtocols(new int[] { WifiConfiguration.Protocol.RSN,
-				WifiConfiguration.Protocol.WPA });
+		setPairwiseCiphers(new int[]{WifiConfiguration.PairwiseCipher.TKIP,WifiConfiguration.PairwiseCipher.CCMP});
+		
+		setProtocols(new int[]{WifiConfiguration.Protocol.RSN,WifiConfiguration.Protocol.WPA});
 
 		setEap("PEAP");
 		setPhase2("auth=MSCHAPV2");

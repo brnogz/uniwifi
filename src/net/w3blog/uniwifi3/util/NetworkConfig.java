@@ -24,12 +24,11 @@ import java.util.List;
 import android.content.Context;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
-import android.os.Build;
 import android.util.Log;
 
 public class NetworkConfig {
 
-	protected WifiConfiguration config;
+	private WifiConfiguration config;
 
 	@SuppressWarnings("rawtypes")
 	private Class[] classes = WifiConfiguration.class.getClasses();
@@ -42,10 +41,6 @@ public class NetworkConfig {
 	private Field fAnonymousId = null, fCaCertificate = null,
 			fClientCertificate = null, fEap = null, fIdentity = null,
 			fPassword = null, fPhase2 = null, fPrivateKey = null;
-	
-	public NetworkConfig(){
-		
-	}
 
 	@SuppressWarnings("rawtypes")
 	public NetworkConfig(WifiConfiguration config) {
@@ -61,7 +56,7 @@ public class NetworkConfig {
 			}
 
 			if (EnterpriseField == null) {
-				Log.d("buwifi", "EnterPriseField is null");
+				Log.d("buwifi", "EnterPriseField is not null");
 				this.noEnterprise = true;
 			}
 
@@ -198,7 +193,7 @@ public class NetworkConfig {
 		this.setEnterpriseField(this.fPhase2, o);
 	}
 
-	public void setPrivateKey(Object o) {
+	public void setPrivateKEy(Object o) {
 		this.setEnterpriseField(this.fPrivateKey, o);
 	}
 
@@ -226,9 +221,6 @@ public class NetworkConfig {
 	}
 
 	public static boolean isEnterpriseReachable(Context c) {
-		if(Build.VERSION.SDK_INT >= 18)
-			return false;
-		
 		WifiManager wifiManager = (WifiManager) c.getSystemService(Context.WIFI_SERVICE);
 		List<WifiConfiguration> wirelessList = wifiManager
 			.getConfiguredNetworks();

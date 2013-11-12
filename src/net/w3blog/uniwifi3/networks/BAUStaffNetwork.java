@@ -16,14 +16,16 @@
  */
 package net.w3blog.uniwifi3.networks;
 
-import net.w3blog.uniwifi3.util.SchoolNetwork;
+import net.w3blog.uniwifi3.util.NetworkConfig;
+
 import android.net.wifi.WifiConfiguration;
 
-public class BAUStaffNetwork extends SchoolNetwork {
+public class BAUStaffNetwork extends NetworkConfig {
+	final private String SSID = "\"10\"";
 
-	@Override
-	public void init(String username, String password) {
-		String SSID = "\"10\"";
+	public BAUStaffNetwork(WifiConfiguration config, String username,
+			String password) {
+		super(config);
 
 		setSSID(SSID);
 
@@ -48,6 +50,7 @@ public class BAUStaffNetwork extends SchoolNetwork {
 		setPhase2("auth=MSCHAPV2");
 		setIdentity(username);
 		setPassword(password);
+
 	}
 
 }

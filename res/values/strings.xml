@@ -38,7 +38,7 @@
 	<string name="enable">Enable Wireless</string>
 	<string name="close">Close UNIwifi</string>
 	<string name="Okay">OK</string>
-	<string name="about_msg">UNIwifi v 3.1\n\nLicensed under the GPL v 3.0\nProject page and source at \nhttps://github.com/brnogz/uniwifi\nGNU GPL v 3.0\nhttp://www.gnu.org/licenses/gpl-3.0.txt\n\nUses code from Wifi-ACE Project\nhttp://android-wifi-ace.googlecode.com\Apache License v 2.0\nhttp://www.apache.org/licenses/LICENSE-2.0.html\n</string>
+	<string name="about_msg">UNIwifi v 3.0\n\nLicensed under the GPL v 3.0\nProject page and source at \nhttps://github.com/brnogz/uniwifi\nGNU GPL v 3.0\nhttp://www.gnu.org/licenses/gpl-3.0.txt\n\nUses code from Wifi-ACE Project\nhttp://android-wifi-ace.googlecode.com\Apache License v 2.0\nhttp://www.apache.org/licenses/LICENSE-2.0.html\n</string>
 	<string name="img_logo">UNIwifi Logo</string>
 	<string name="enterprise_msg">Current UNIwifi cannot reach some settings on your device, so UNIwifi cannot work well. Please give feedback about this error.</string>
 	<string name="email">Your Email Address</string>

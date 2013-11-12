@@ -25,7 +25,6 @@ import net.w3blog.uniwifi3.networks.EduroamNetwork;
 import net.w3blog.uniwifi3.networks.YTUStudentNetwork;
 import net.w3blog.uniwifi3.util.NetworkConfig;
 import net.w3blog.uniwifi3.util.Preferences;
-import net.w3blog.uniwifi3.util.SchoolNetwork;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -244,24 +243,26 @@ public class UNIwifiActivity extends Activity {
 	 */
 	private WifiConfiguration createConfiguration(int SSID, String username,
 			String password) {
-		SchoolNetwork netConfig = null;
+		NetworkConfig netConfig = null;
 
 		switch (SSID) {
 		case BAU_STAFF:
-			netConfig = new BAUStaffNetwork();
+			netConfig = new BAUStaffNetwork(new WifiConfiguration(), username,
+					password);
 			break;
 		case BAU_STUDENT:
-			netConfig = new BAUStudentNetwork();
+			netConfig = new BAUStudentNetwork(new WifiConfiguration(),
+					username, password);
 			break;
 		case YTU_STUDENT:
-			netConfig = new YTUStudentNetwork();
+			netConfig = new YTUStudentNetwork(new WifiConfiguration(),
+					username, password);
 			break;
 		case EDUROAM:
-			netConfig = new EduroamNetwork();
+			netConfig = new EduroamNetwork(new WifiConfiguration(), username,
+					password);
 			break;
 		}
-
-		netConfig.init(username, password);
 
 		return netConfig.getConfiguration();
 	}
